@@ -1,0 +1,17 @@
+.main{
+    min-height: 80vh;
+    display: flex;
+    align-items: center;
+}
+
+.main-card{
+    min-height: 60vh;
+}
+
+.card-title{
+    font-size: 4rem;
+}
+
+.card-text{
+    font-size: 2rem;
+}

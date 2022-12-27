@@ -1,0 +1,19 @@
+.mynotes{
+    min-height: 80vh;
+}
+
+.card-header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.accordion-header{
+    font-size: 1.6rem;
+}
+
+.accordion-header button {
+    border: none;
+    background: inherit;
+    outline: none;
+}
