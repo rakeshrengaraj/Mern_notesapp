@@ -17,3 +17,7 @@
     background: inherit;
     outline: none;
 }
+
+.category-badge{
+    font-size: 0.8rem;
+}

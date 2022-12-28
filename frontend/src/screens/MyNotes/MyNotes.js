@@ -1,18 +1,27 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import "./MyNotes.css";
-import { Card, Container, Accordion, Button } from "react-bootstrap";
-import { Link } from "react-router-dom";
+import { Card, Container, Accordion, Button, Badge } from "react-bootstrap";
 import MainScreen from "../../components/MainScreen/MainScreen";
-import notes from "../../data/notes";
+// import notes from "../../data/notes"; // static data from json file not required as we are fetching from api
+import axios from "axios";
 
 const MyNotes = () => {
-
-    const handleDelete = (id) => {
-        if(window.confirm("Are you sure you want to delete?")){
-            console.log("Delete clicked",id)
-        }
+  const handleDelete = (id) => {
+    if (window.confirm("Are you sure you want to delete?")) {
+      console.log("Delete clicked", id);
     }
+  };
 
+  const [notes, setNotes] = useState([]);
+
+  const fetchApi = async () => {
+    const { data } = await axios.get("/api/notes");
+    setNotes(data);
+  };
+
+  useEffect(() => {
+    fetchApi();
+  }, []);
 
   return (
     <div className="mynotes my-3">
@@ -30,13 +39,21 @@ const MyNotes = () => {
                       <Accordion.Header>{note.title}</Accordion.Header>
                       <div className="accordion-btn">
                         <Button className="mx-1" href={`/edit/${note._id}`}>
-                            Edit
+                          Edit
                         </Button>
-                        <Button variant="danger" onClick={() => handleDelete(note._id)}>Delete</Button>
+                        <Button
+                          variant="danger"
+                          onClick={() => handleDelete(note._id)}
+                        >
+                          Delete
+                        </Button>
                       </div>
                     </Card.Header>
                     <Accordion.Body>
                       <Card.Body>
+                        <Badge bg="success" className="mb-2 category-badge">
+                          Category:- {note.category}
+                        </Badge>
                         <blockquote className="blockquote mb-0">
                           <p>{note.content}</p>
                           <footer className="blockquote-footer">

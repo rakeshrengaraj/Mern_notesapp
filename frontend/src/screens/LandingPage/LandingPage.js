@@ -17,7 +17,7 @@ const LandingPage = () => {
             <Card.Title>Welcome to Notes App</Card.Title>
             <Card.Text>One Safe place for all your notes</Card.Text>
             <Row>
-              <Col>
+              <Col >
                 <Button
                   variant="primary"
                   className="mr-5 mt-5 btn btn-primary btn-lg"
