@@ -50,6 +50,7 @@ const authLogin = asyncHandler(async(req,res) => {
             email: user.email,
             first_name: user.first_name,
             last_name: user.last_name,
+            date_of_birth: user.date_of_birth,
             token: generateToken(user._id)
         })
     }

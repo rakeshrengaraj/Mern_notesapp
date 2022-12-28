@@ -18,7 +18,7 @@ const LandingPage = () => {
             <Card.Text>One Safe place for all your notes</Card.Text>
             <Row>
               <Col >
-                <Button
+                <Button href="/login"
                   variant="primary"
                   className="mr-5 mt-5 btn btn-primary btn-lg"
                 >
@@ -27,6 +27,7 @@ const LandingPage = () => {
               </Col>
               <Col>
                 <Button
+                  href="/signup"
                   variant="primary"
                   className="mt-5 btn btn-primary btn-lg"
                 >

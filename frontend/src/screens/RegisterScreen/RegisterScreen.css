@@ -1,0 +1,12 @@
+.register-screen{
+    min-height: 80vh;
+}
+
+.register-screen a{
+    color: #127ba3;
+    font-weight: 900;
+}
+
+.form-control[type=file] {
+    overflow: hidden;
+}

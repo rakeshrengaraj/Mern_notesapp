@@ -1,9 +1,12 @@
 import React from "react";
 import "./Header.css";
 import { Container, Navbar, NavDropdown, Nav, Form } from "react-bootstrap";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 const Header = () => {
+
+  const navigate = useNavigate()
+
   return (
     <div className="header">
       <Navbar bg="dark" expand="lg" variant="dark">
@@ -27,7 +30,10 @@ const Header = () => {
               <NavDropdown title="Rakesh Rengaraj" id="navbarScrollingDropdown">
                 <NavDropdown.Item href="#action3">My Profile</NavDropdown.Item>
                 <NavDropdown.Divider />
-                <NavDropdown.Item href="#action5">Logout</NavDropdown.Item>
+                <NavDropdown.Item onClick={() => {
+                    localStorage.removeItem('userinfo');
+                    navigate("/")
+                }}>Logout</NavDropdown.Item>
               </NavDropdown>
             </Nav>
           </Navbar.Collapse>
